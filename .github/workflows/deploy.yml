@@ -33,13 +33,9 @@ jobs:
       - name: 單元測試
         run: npm test
 
+      # Supabase 公開設定放在 .env.production
       - name: 建置
         run: npm run build
-        env:
-          # 在 Settings → Secrets and variables → Actions → Variables 設定
-          # 未設定時網站以示範模式運作
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
 
       - uses: actions/configure-pages@v5
 

@@ -56,7 +56,7 @@ npm install
 npm run dev
 ```
 
-未設定環境變數時為示範模式。要連接 Supabase，複製 `.env.example` 為 `.env.local` 並填入。
+`npm run dev` 不會讀取 `.env.production`，因此本機開發預設為示範模式；要連接 Supabase，複製 `.env.example` 為 `.env.local` 並填入。
 
 常用指令：
 
@@ -67,7 +67,24 @@ node scripts/validate-questions.mjs --private  # 另外檢查正式題庫
 npm run build                              # 建置
 ```
 
+## 目前部署狀態
+
+| 項目 | 狀態 |
+| --- | --- |
+| Supabase 專案 | `osh-learning-platform`（ref `xydhdekmzjxhokliwiwt`，東京） |
+| 資料庫結構、RLS、私有 Storage | 已套用 |
+| 100 題題庫 | 已匯入，狀態為 draft，校驗碼與本機題庫一致 |
+| Edge Functions | start-attempt、submit-attempt、get-review 已部署 |
+| 前端連線設定 | `.env.production` |
+| 管理者帳號 | 待建立 |
+| 題庫審核 | 待完成；審核前正式測驗不開放 |
+| GitHub Pages | 待開啟 |
+
+Edge Function 預設只接受 `https://johnsonjunior37.github.io` 的請求；如需其他網域，在 Supabase 設定 `ALLOWED_ORIGINS` secret。限流用的鹽值未另外設定時，以伺服端金鑰代替。
+
 ## 上線步驟
+
+以下為從零建立的完整步驟，供日後重建或搬移時參考。
 
 ### 1. 建立 Supabase 專案
 
@@ -94,7 +111,7 @@ psql "$(npx supabase db url)" -f content-private/seed.private.sql
 
 ### 3. 部署 Edge Functions
 
-需要在電腦上使用 Supabase CLI：
+需要在電腦上使用 Supabase CLI。兩個 secret 為選擇性設定：
 
 ```bash
 npx supabase secrets set RATE_LIMIT_SALT=$(openssl rand -hex 32)
@@ -130,9 +147,7 @@ Storage → `private-docs`，上傳：
 
 ### 7. 部署 GitHub Pages
 
-1. Repository → Settings → Secrets and variables → Actions → **Variables**，新增：
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
+1. 將 Supabase 的 Project URL 與 publishable key 填入 `.env.production`。
 2. Settings → Pages → Source 選 **GitHub Actions**。
 3. 推送到 `main` 或在 Actions 頁手動執行，完成後網址為 `https://johnsonjunior37.github.io/osh-learning-platform/`。
 

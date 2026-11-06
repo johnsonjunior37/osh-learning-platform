@@ -4,6 +4,7 @@ dist
 .env
 .env.*
 !.env.example
+!.env.production
 
 # 含正式答案與解析的題庫原始檔，絕不提交
 content-private/
