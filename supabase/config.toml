@@ -1,0 +1,12 @@
+# Supabase CLI 設定
+# 測驗 API 為公開端點，由函式自行驗證輸入與限流，因此不要求登入 JWT
+project_id = "osh-learning-platform"
+
+[functions.start-attempt]
+verify_jwt = false
+
+[functions.submit-attempt]
+verify_jwt = false
+
+[functions.get-review]
+verify_jwt = false

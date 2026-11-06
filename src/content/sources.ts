@@ -23,6 +23,11 @@ export const SOURCES = {
     url: 'https://www.ctee.com.tw/news/20260121701103-430104',
     checked: CHECKED,
   },
+  healthCheckDraft: {
+    label: '工商時報：勞動部預告修正勞工健康檢查頻率（2026-04-18）',
+    url: 'https://www.ctee.com.tw/news/20260418700590-431401',
+    checked: CHECKED,
+  },
   caseConfinedSpace: {
     label: '臺中市政府勞動檢查處：從事缺氧/局限空間作業發生吸入疑似硫化氫中毒重大職業災害',
     url: 'https://www.doli.taichung.gov.tw/media/1350245/%E5%BE%9E%E4%BA%8B%E7%BC%BA%E6%B0%A7-%E5%B1%80%E9%99%90%E7%A9%BA%E9%96%93%E4%BD%9C%E6%A5%AD%E7%99%BC%E7%94%9F%E5%90%B8%E5%85%A5%E7%96%91%E4%BC%BC%E7%A1%AB%E5%8C%96%E6%B0%AB%E4%B8%AD%E6%AF%92.pdf',

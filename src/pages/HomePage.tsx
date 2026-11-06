@@ -81,6 +81,12 @@ export function HomePage() {
           ))}
         </ul>
       </section>
+
+      <p className="text-center">
+        <Link to="/admin" className="inline-block min-h-11 py-2 text-sm text-slate-500 underline underline-offset-2">
+          管理者登入
+        </Link>
+      </p>
     </div>
   )
 }

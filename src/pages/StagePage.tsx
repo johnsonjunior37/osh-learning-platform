@@ -112,7 +112,7 @@ export function StagePage() {
                 e.preventDefault()
                 document.getElementById(t.id)?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700"
+              className="flex min-h-11 items-center rounded-full border border-slate-300 bg-white px-3.5 text-sm text-slate-700"
             >
               {t.label}
             </a>

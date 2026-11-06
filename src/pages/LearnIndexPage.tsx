@@ -1,4 +1,4 @@
-import { CheckCircle2, ChevronRight, Circle } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Circle, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { SOURCE_DOCUMENT, STAGES } from '../content'
 import { useReadingProgress } from '../lib/progress'
@@ -37,6 +37,19 @@ export function LearnIndexPage() {
           </li>
         ))}
       </ol>
+
+      <a
+        href={`${import.meta.env.BASE_URL}downloads/osh-learning-and-questions.pdf`}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 active:bg-slate-50"
+      >
+        <Download className="size-6 shrink-0 text-brand-700" aria-hidden />
+        <span className="min-w-0 flex-1">
+          <span className="block font-bold text-slate-900">下載 PDF 教材與題庫</span>
+          <span className="block text-sm text-slate-500">A5 直式，五階段教材與 100 題練習題，不含答案</span>
+        </span>
+      </a>
 
       <p className="rounded-xl bg-slate-100 p-3 text-[15px] text-slate-600">
         閱讀進度只記錄在這台裝置的瀏覽器，不會上傳。

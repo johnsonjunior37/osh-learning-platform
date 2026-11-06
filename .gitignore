@@ -10,8 +10,10 @@ content-private/
 *.private.json
 *.private.csv
 
-# 原始教材 PDF 尚未確認公開授權
+# 原始教材 PDF 尚未確認公開授權；只允許提交不含答案的 PDF A
 *.pdf
+!public/downloads/osh-learning-and-questions.pdf
+pdf-build/
 
 .DS_Store
 .vscode/*
