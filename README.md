@@ -71,14 +71,16 @@ npm run build                              # 建置
 
 | 項目 | 狀態 |
 | --- | --- |
-| Supabase 專案 | `osh-learning-platform`（ref `xydhdekmzjxhokliwiwt`，東京） |
+| Supabase 專案 | `osh-learning-platform`，ref `xydhdekmzjxhokliwiwt`，東京區域 |
 | 資料庫結構、RLS、私有 Storage | 已套用 |
-| 100 題題庫 | 已匯入，狀態為 draft，校驗碼與本機題庫一致 |
+| 100 題題庫 | 已匯入並全部開放（approved），校驗碼與本機題庫一致；尚未經人工逐題審核 |
 | Edge Functions | start-attempt、submit-attempt、get-review 已部署 |
 | 前端連線設定 | `.env.production` |
-| 管理者帳號 | 待建立 |
-| 題庫審核 | 待完成；審核前正式測驗不開放 |
-| GitHub Pages | 待開啟 |
+| 管理者帳號 | johnsonjunior37@gmail.com |
+| PDF B | 已上傳至 private-docs |
+| GitHub Pages | 已上線：https://johnsonjunior37.github.io/osh-learning-platform/ |
+
+要暫停單一題目：`update public.question_keys set review_status = 'draft' where question_id = 'S1-01';`，該階段可用題數少於 20 題時會自動停止開放。
 
 Edge Function 預設只接受 `https://johnsonjunior37.github.io` 的請求；如需其他網域，在 Supabase 設定 `ALLOWED_ORIGINS` secret。限流用的鹽值未另外設定時，以伺服端金鑰代替。
 
